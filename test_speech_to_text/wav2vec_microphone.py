@@ -37,7 +37,7 @@ def main():
     logging.info(f"speech_tsr.shape = {speech_tsr.shape}")
 
     # Tokenize our tensor
-    input_values = processor(speech_tsr, return_tensord="pt", sampling_rate=sampling_rate)["input_values"]
+    input_values = processor(speech_tsr, return_tensors="pt", sampling_rate=sampling_rate)["input_values"]
     logging.info(f"type(input_values) = {type(input_values)}")
     logging.info(f"len(input_values) = {len(input_values)}")
     logging.info(f"type(input_values[0]) = {type(input_values[0])}")
