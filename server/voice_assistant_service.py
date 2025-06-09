@@ -167,7 +167,7 @@ def get_sentence(mic_stream, stt_processor, stt_model, device, sampling_rate, co
 
     transcription = None
     if config.speech_to_text_model == "facebook/wav2vec2-large-xlsr-53-french":
-        input_values = stt_processor(speech_tsr, return_tensord="pt", sampling_rate=sampling_rate)["input_values"]
+        input_values = stt_processor(speech_tsr, return_tensors="pt", sampling_rate=sampling_rate)["input_values"]
         input_tsr = torch.from_numpy(input_values[0]).to(device).unsqueeze(0)
         # Perform speech-to-text inference
         logits = stt_model(input_tsr)["logits"]
